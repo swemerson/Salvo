@@ -9,7 +9,7 @@ public class PlayerScript : MonoBehaviour
 
 	void Start () 
 	{
-		speed = 15f;
+		speed = 25f;
 		rb2d = GetComponent<Rigidbody2D>();
 	}
 
@@ -26,7 +26,7 @@ public class PlayerScript : MonoBehaviour
 		// Movement
 		float x = Input.GetAxisRaw("Horizontal");
 		float y = Input.GetAxisRaw ("Vertical");
-		movement.Set(x, y, 0f);
+		movement.Set(x, y, 0f); // z was 0
 		movement = movement.normalized * speed * Time.deltaTime;
 		rb2d.MovePosition(transform.position + movement);
 	}
